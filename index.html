@@ -6,82 +6,138 @@
     <title>Surya House Keeping</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #ff0000; color: white; padding: 20px; text-align: center; display: flex; align-items: center; justify-content: center; }
-        .logo { width: 80px; height: 80px; border-radius: 50%; margin-right: 15px; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { background: #d32f2f; color: white; display: flex; align-items: center; justify-content: space-between; padding: 20px 10%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        .logo { width: 80px; height: 80px; border-radius: 50%; }
+        .header-text { text-align: left; }
+        .cta-button { background: #ffcc00; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; transition: 0.3s; }
+        .cta-button:hover { background: #e6b800; }
+        nav { background: #333; padding: 15px; text-align: center; }
+        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 18px; transition: 0.3s; font-weight: bold; }
+        nav a:hover { color: #ffcc00; }
+        .tab-container { width: 80%; margin: 30px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        .tabs { display: flex; justify-content: space-around; border-bottom: 3px solid #ddd; padding-bottom: 10px; }
+        .tab { padding: 12px 25px; background: #d32f2f; color: white; border-radius: 10px 10px 0 0; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .tab:hover, .tab.active { background: #ffcc00; color: black; }
+        .tab-content { display: none; padding: 20px; animation: fadeEffect 0.5s; }
+        .tab-content.active { display: block; }
+        .service-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
+        .service-images img { width: 200px; height: 200px; border-radius: 12px; object-fit: cover; transition: transform 0.3s; }
+        .service-images img:hover { transform: scale(1.1); }
+        .md-section { text-align: center; padding: 50px; background: white; margin: 40px auto; width: 80%; border-radius: 12px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        .md-img { width: 150px; height: 150px; border-radius: 50%; border: 5px solid #d32f2f; }
+        .md-name { font-size: 24px; font-weight: bold; margin-top: 10px; }
+        .md-title { font-size: 18px; color: #555; margin-top: 5px; }
+        .md-quote { font-style: italic; color: #777; margin-top: 15px; }
+        .tab-container { width: 80%; margin: 30px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        .tabs { display: flex; justify-content: space-around; border-bottom: 3px solid #ddd; padding-bottom: 10px; }
+        .tab { padding: 12px 25px; background: #d32f2f; color: white; border-radius: 10px 10px 0 0; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .tab:hover, .tab.active { background: #ffcc00; color: black; }
+        .tab-content { display: none; padding: 20px; animation: fadeEffect 0.5s; }
+        .tab-content.active { display: block; }
+        .testimonial-card { background: white; padding: 20px; margin: 15px 0; border-left: 5px solid #d32f2f; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        .testimonial-card p { font-style: italic; color: #444; }
+        .testimonial-card .client-name { font-weight: bold; margin-top: 10px; color: #d32f2f; }
         nav { background: #333; padding: 10px; text-align: center; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 18px; }
         section { padding: 20px; text-align: center; }
-        footer { background: #222; color: white; text-align: center; padding: 10px; }
-        img { width: 300px; height: 300px; object-fit: cover; }
-        .service-images, .director-image { text-align: center; margin: 20px 0; }
-        .contact-info { font-size: 18px; }
-        .contact-info i { margin-right: 10px; color: #ff0000; }
-        .map-container { width: 100%; height: 400px; margin-top: 10px; }
+        footer { background: #222; color: white; text-align: center; padding: 20px; font-weight: bold; }
+        @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
     </style>
 </head>
 <body>
     <header>
         <img src="logo.png" alt="Surya House Keeping Logo" class="logo">
-        <div>
+        <div class="header-text">
             <h1>Welcome to Surya House Keeping</h1>
             <p>Professional Cleaning and Manpower Services</p>
         </div>
+        <a href="https://wa.me/919948474643?text=Hello!%20I%20want%20a%20cleaning%20service." target="_blank">
+            <button class="cta-button">Get a Free Quote</button>
+        </a>
     </header>
     
-    <nav>
-        <a href="#director">Director</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#manpower">Manpower</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="director">
-        <h2>Managing Director</h2>
-        <div class="director-image">
-            <img src="gar.jpg" alt="Managing Director">
-            <p>Mr. GANKALA APPARAO</p>
+    <section class="md-section">
+        <img src="gar.jpg" alt="Managing Director" class="md-img">
+        <div class="md-name">Mr. GANKALA APPARAO</div>
+        <p class="md-quote">“Our vision is to deliver the best cleaning solutions with professionalism and integrity.”</p>
+    </section>
+    
+    <div class="tab-container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'about')">About Us</div>
+            <div class="tab" onclick="openTab(event, 'services')">Services</div>
+            <div class="tab" onclick="openTab(event, 'manpower')">Manpower</div>
+            <div class="tab" onclick="openTab(event, 'testimonials')">Testimonials</div>
         </div>
-    </section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Surya House Keeping is a trusted provider of high-quality cleaning and manpower services. With years of experience in the industry, we have built a strong reputation for delivering efficient, professional, and affordable cleaning solutions for homes, offices, industries, and commercial spaces.</p>
-        <p>Our mission is to create a clean, safe, and hygienic environment for our clients by using advanced cleaning techniques and well-trained personnel. We prioritize customer satisfaction and work tirelessly to ensure every space we clean meets the highest standards of hygiene and safety.</p>
-        <p>Our team consists of dedicated professionals who are trained to handle all types of cleaning tasks and manpower requirements. Whether it's daily housekeeping, deep cleaning, or providing skilled personnel for various industries, we are committed to excellence in every aspect of our service.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Cleaning Services</h2>
-        <ul>
-            <li><strong>Home Cleaning:</strong> Comprehensive cleaning for homes, including dusting, mopping, vacuuming, and sanitizing kitchens and bathrooms.</li>
-            <li><strong>Office Cleaning:</strong> Ensuring a clean and professional workspace with desk cleaning, floor maintenance, and restroom sanitation.</li>
-            <li><strong>Deep Cleaning:</strong> A thorough cleaning service that includes scrubbing walls, ceilings, deep carpet cleaning, and sanitization.</li>
-            <li><strong>Carpet & Sofa Cleaning:</strong> Specialized cleaning to remove dirt, stains, and allergens from carpets and sofas using advanced techniques.</li>
-            <li><strong>Industrial Cleaning:</strong> Cleaning large-scale facilities, warehouses, and factories, including machinery, floors, and production areas.</li>
-        </ul>
-        <div class="service-images">
-            <img src="1.jpg" height="200" width="300" alt="Home Cleaning">
-            <img src="2.jpg" height="200" width="300" alt="Office Cleaning">
-            <img src="3.jpg" height="200" width="300" alt="Industrial Cleaning">
-            <img src="4.jpeg" height="200" width="300" alt="Carpet Cleaning">
-            <img src="5.jpg" height="200" width="300" alt="Sofa Cleaning">
-            <img src="6.webp" height="200" width="300" alt="Deep Cleaning">
+        <div id="about" class="tab-content active">
+            <h2>About Us</h2>
+            <p>Surya House Keeping provides top-notch cleaning and manpower services...</p>
+            <p>Surya House Keeping is a trusted provider of high-quality cleaning and manpower services. With years of experience in the industry, we have built a strong reputation for delivering efficient, professional, and affordable cleaning solutions for homes, offices, industries, and commercial spaces.</p>
+            <p>Our mission is to create a clean, safe, and hygienic environment for our clients by using advanced cleaning techniques and well-trained personnel. We prioritize customer satisfaction and work tirelessly to ensure every space we clean meets the highest standards of hygiene and safety.</p>
+            <p>Our team consists of dedicated professionals who are trained to handle all types of cleaning tasks and manpower requirements. Whether it's daily housekeeping, deep cleaning, or providing skilled personnel for various industries, we are committed to excellence in every aspect of our service.</p>
+    
         </div>
-    </section>
-
-    <section id="manpower">
-        <h2>Manpower Supply</h2>
-        <p>We provide trained professionals for:</p>
-        <ul>
-            <li>Housekeeping Staff</li>
-            <li>Office Boys</li>
-            <li>Security Guards</li>
-            <li>Maintenance Workers</li>
-            <li>Event Staff</li>
-        </ul>
-    </section>
+        <div id="services" class="tab-content">
+            <h2>Our Cleaning Services</h2>
+            <ul>
+                <li><strong>Home Cleaning:</strong> Comprehensive cleaning for homes, including dusting, mopping, vacuuming, and sanitizing kitchens and bathrooms.</li>
+                <li><strong>Office Cleaning:</strong> Ensuring a clean and professional workspace with desk cleaning, floor maintenance, and restroom sanitation.</li>
+                <li><strong>Deep Cleaning:</strong> A thorough cleaning service that includes scrubbing walls, ceilings, deep carpet cleaning, and sanitization.</li>
+                <li><strong>Carpet & Sofa Cleaning:</strong> Specialized cleaning to remove dirt, stains, and allergens from carpets and sofas using advanced techniques.</li>
+                <li><strong>Industrial Cleaning:</strong> Cleaning large-scale facilities, warehouses, and factories, including machinery, floors, and production areas.</li>
+            </ul>
+            <div class="service-images">
+                <img src="1.jpg" alt="Home Cleaning">
+                <img src="2.jpg" alt="Office Cleaning">
+                <img src="3.jpg" alt="Industrial Cleaning">
+                <img src="4.jpeg" alt="Carpet Cleaning">
+                <img src="5.jpg" alt="Sofa Cleaning">
+                <img src="6.webp" alt="Deep Cleaning">
+            </div>
+        </div>
+        <div id="manpower" class="tab-content">
+            <h2>Manpower Supply</h2>
+            <p>We provide skilled manpower for various industries...</p>
+            <ul>
+                <li>Housekeeping Staff</li>
+                <li>Office Boys</li>
+                <li>Security Guards</li>
+                <li>Maintenance Workers</li>
+                <li>Event Staff</li>
+            </ul>
+        </div>
+        <div id="testimonials" class="tab-content active">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-card">
+                <p>"Surya House Keeping transformed our office into a spotless and refreshing space. Their attention to detail is unmatched!"</p>
+                <div class="client-name">- Anjali S.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Exceptional service! The team was punctual, professional, and delivered top-notch cleaning beyond my expectations."</p>
+                <div class="client-name">- Ramesh K.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Reliable and efficient cleaning service. My home has never felt this fresh and organized. Highly recommended!"</p>
+                <div class="client-name">- Priya M.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The team was incredibly professional and efficient. My apartment looks brand new!"</p>
+                <div class="client-name">- Meera J.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Highly reliable service! The staff was courteous, and they paid attention to every detail."</p>
+                <div class="client-name">- Vikram R.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"I booked them for my restaurant cleaning, and the results were beyond my expectations. Excellent work!"</p>
+                <div class="client-name">- Sandeep K.</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Surya House Keeping made my home sparkle! I would definitely recommend them to others."</p>
+                <div class="client-name">- Neha P.</div>
+            </div>
+        
 
     <section id="contact">
         <h2>Contact Us</h2>
@@ -108,9 +164,17 @@
         </div>
     </section>
 
+
     <footer>
         <p>&copy; 2025 Surya House Keeping. All Rights Reserved.</p>
     </footer>
+    <script>
+        function openTab(event, tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
-
